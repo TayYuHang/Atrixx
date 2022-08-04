@@ -22,10 +22,8 @@ import re
 from pathlib import Path 
 import csv 
 try: 
-    # create a new fp and extend it to 'Atrixx' 
-    fp=Path.cwd()/"Try folder" 
     #create a new file_path and extend it to overheads.csv 
-    file_path = Path.cwd()/"Try folder"/"overheads.csv" 
+    file_path = Path.cwd()/"CSV Reports"/"overheads.csv" 
  
     #creating an empty list and naming it empty_list 
     empty_list=[] 

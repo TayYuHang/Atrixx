@@ -19,10 +19,8 @@ close_data=data["Realtime Currency Exchange Rate"]
 #Extracting Exchange Rate values from close_data and converting it into float and name it Exchange_Rate 
 Exchange_Rate=(float(close_data['5. Exchange Rate'])) 
 try: 
-    # create a new fp and extend it to 'Atrixx' 
-    fp=Path.cwd()/"Try folder" 
     #create a new file_path and extend it to overheads.csv 
-    file_path=Path.cwd()/"Try folder"/"profit-and-loss-usd.csv" 
+    file_path=Path.cwd()/'CSV Reports'/"profit-and-loss-usd.csv" 
     #opening file_path to read data in csv file 
     with file_path.open(mode = "r",encoding = "UTF-8", newline="") as file: 
     #using csv reader to read data in csv file 
