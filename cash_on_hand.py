@@ -3,7 +3,7 @@ import csv
 import requests
 #set api key as my_api
 my_api = '359XZEEVAMH3VA4A'
-#my_api='F2UE00AWKLCI7DKV'
+
 
 #set website link with my_api as url
 url= 'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=USD&to_currency=SGD&apikey={my_api}'
