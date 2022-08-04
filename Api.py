@@ -1,34 +1,21 @@
-import Api, cash_on_hand, Profit_and_loss, overhead 
+import requests 
+#set api key as my_api 
+my_api = '359XZEEVAMH3VA4A' 
+#my_api='VSAFQ7CP9MDL4PCL' 
+#set url with api key as url  
+url= 'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=USD&to_currency=SGD&apikey={my_api}' 
+#set url response from url as response 
+response= requests.get(url) 
  
-from pathlib import Path 
+import json 
+# use .json to retrieve data and stored as JSON object from the API and name it as data 
+data=response.json() 
+#converting values from API into string format 
+json.dumps(data,indent=4) 
  
- 
-fp= Path.cwd()/"Summary_report.txt" 
-fp.touch() 
- 
- 
-with fp.open(mode='a',encoding='UTF-8',newline='') as file : 
-    file.write(f'[REAL TIME CURRENCY CONVERSION RATE] USD1= SGD{Api.Exchange_Rate}') 
-    file.write('\n') 
-    file.write(f'{overhead.Overhead}') 
-    file.write('\n') 
-    file.write(f" {cash_on_hand.flag_list[0]}") 
-    file.write('\n') 
-    file.write(f'{cash_on_hand.flag_list[1]}') 
-    file.write('\n') 
-    file.write(f'{cash_on_hand.flag_list[2]}') 
-    file.write('\n') 
-    file.write(f'{cash_on_hand.flag_list[3]}') 
-    file.write('\n') 
-    file.write(f'{cash_on_hand.flag_list[4]}') 
-    file.write('\n') 
-    file.write(f'{Profit_and_loss.flag_list[0]}') 
-    file.write('\n') 
-    file.write(f'{Profit_and_loss.flag_list[1]}') 
-    file.write('\n') 
-    file.write(f'{Profit_and_loss.flag_list[2]}') 
-    file.write('\n') 
-    file.write(f'{Profit_and_loss.flag_list[3]}') 
-    file.write('\n') 
-    file.write(f'{Profit_and_loss.flag_list[4]}')
+#extract values of Realtime Currency Exchange Rate from data and naming it close data 
+close_data=data["Realtime Currency Exchange Rate"] 
+#Extracting Exchange Rate values from close_data and converting it into float and name it Exchange_Rate 
+Exchange_Rate=(float(close_data['5. Exchange Rate'])) 
+print(Exchange_Rate)
 
