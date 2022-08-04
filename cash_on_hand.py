@@ -14,7 +14,6 @@ close_data=data["Realtime Currency Exchange Rate"]
 Exchange_Rate=(float(close_data['5. Exchange Rate']))
 fp=Path.cwd()/"Atrixx"
 file_path=Path.cwd()/"CSV Reports"/"cash-on-hand-usd.csv"
-#print(fp.exists())
 with file_path.open(mode = "r",encoding = "UTF-8", newline="") as file:
     reader = csv.reader(file)
     next(reader)
